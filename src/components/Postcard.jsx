@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-const Postcard = ({
-  profilePhoto,
-  username,
-  image1,
-  image2,
-  image3,
-  postHeading,
-  postDescription,
-  date,
-  time,
+const PostCard = ({ 
+  profilePhoto, 
+  username, 
+  image1, 
+  image2, 
+  image3, 
+  postHeading, 
+  postDescription, 
+  date, 
+  time, 
   likeCount,
-  postCategory,
+  postCategory 
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to control dropdown visibility
@@ -29,36 +29,29 @@ const Postcard = ({
   };
 
   return (
-    <div className="parent-container bg-white text-white rounded-2xl flex flex-col relative my-[50px] w-[700px] align-middle ">
+    <div className="parent-container bg-white text-white rounded-2xl w-[700px] h-[650px] flex flex-col relative">
       <div className="head bg-white h-[70px] rounded-t-2xl flex justify-start items-center pl-3">
-        <div className="pfp rounded-full bg-cyan-600 h-12 w-12 border border-white border-2">
-          <img
-            src={profilePhoto}
-            alt={`${username}'s profile`}
-            className="rounded-full w-full h-full object-cover"
-          />
+        <div className='pfp rounded-full bg-cyan-600 h-12 w-12 border border-white border-2'>
+          <img src={profilePhoto} alt={`${username}'s profile`} className='rounded-full w-full h-full object-cover' />
         </div>
-        <div className="username ml-4 text-black">{username}</div>
+        <div className="username ml-4 text-black">
+          {username}
+        </div>
         <div className="postCategory flex items-center justify-center h-8 w-[200px] bg-gray-200 rounded-full text-black ml-[230px] p-2">
           {postCategory}
         </div>
         <div className="menu ml-auto text-gray-600 cursor-pointer relative">
-          <i
-            className="fas fa-ellipsis-h text-3xl pr-6"
+          <i 
+            className="fas fa-ellipsis-h text-3xl pr-6" 
             onClick={toggleDropdown}
           ></i>
           {isDropdownOpen && (
             <div className="dropdown-menu absolute top-full right-0 mt-2 w-48 bg-white text-black border border-gray-300 rounded-lg shadow-lg z-50">
               <ul>
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-md">
-                  Save
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-md">
-                  Share
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-md">
-                  Report
-                </li>
+                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-md">Save</li>
+                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-md">Share</li>
+                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-md">Report</li>
+
               </ul>
             </div>
           )}
@@ -69,21 +62,9 @@ const Postcard = ({
           className="carousel-track flex transition-transform duration-300 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          <img
-            src={image1}
-            className="w-full flex-shrink-0"
-            alt="Carousel Image 1"
-          />
-          <img
-            src={image2}
-            className="w-full flex-shrink-0"
-            alt="Carousel Image 2"
-          />
-          <img
-            src={image3}
-            className="w-full flex-shrink-0"
-            alt="Carousel Image 3"
-          />
+          <img src={image1} className="w-full flex-shrink-0" alt="Carousel Image 1" />
+          <img src={image2} className="w-full flex-shrink-0" alt="Carousel Image 2" />
+          <img src={image3} className="w-full flex-shrink-0" alt="Carousel Image 3" />
         </div>
         <button
           id="prev"
@@ -119,4 +100,4 @@ const Postcard = ({
   );
 };
 
-export default Postcard;
+export default PostCard;
