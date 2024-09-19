@@ -1,35 +1,41 @@
-
-import React from 'react';
-import PostCard from './components/PostCard';
-import image_1 from './assets/carouselImages/image_1.jpg';
-import image_2 from './assets/carouselImages/image_2.jpg';
-import image_3 from './assets/carouselImages/image_3.jpeg';
-import profilePhoto from './assets//images/profile_pic.png'; 
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import LoginSignUp from './components/LoginSignUp'
+import { useState } from "react";
+import LoginSignUp from "./components/LoginSignUp";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Adddetails from "./components/Adddetails";
+import Employed from "./components/Employed";
+import Unemployed from "./components/Unemployed";
+import Heigherstudies from "./components/Heigherstudies";
+import Selfemployed from "./components/Selfemployed";
+import Biophoto from "./components/Biophoto";
+import Posts from "./components/Posts";
+import ProfileSetup from "./components/ProfileSetup";
+import Navbar from "./components/Navbar";
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
-    <div>
-       <LoginSignUp />
-    </div>
-    // <div className="min-h-screen flex items-center justify-center bg-gray-400">
-    //   <PostCard 
-    //       profilePhoto={profilePhoto}
-    //       username="adityawaradkar"
-    //       image1={image_1}
-    //       image2={image_2}
-    //       image3={image_3}
-    //       postHeading="Exciting New Feature!"
-    //       postDescription="Check out the latest updates to our app. We've added some amazing new features just for you.Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi consequuntur ea aspernatur pariatur repellendus animi reiciendis, dolores quas, nulla, voluptas quibusdam? Atque maiores repellendus dicta nemo deleniti voluptatibus, tempore sequi!"
-    //       date="2024-08-25"
-    //       time="14:30"
-    //       likeCount="123"
-    //       postCategory="Job opportunity" // Added postCategory prop
-    //   />       
-    // </div> 
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Posts />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Signup />} />
+          <Route path="/details" element={<Adddetails />} />
+          <Route path="/employed" element={<Employed />} />
+          <Route path="/unemployed" element={<Unemployed />} />
+          <Route path="/further-studies" element={<Heigherstudies />} />
+          <Route path="/Self-employed" element={<Selfemployed />} />
+          <Route path="/pphoto" element={<Biophoto />} />
+          <Route path="/logged" element={<ProfileSetup />} />
+        </Routes>
+      </BrowserRouter>
+      {/* <LoginSignUp /> */}
+    </>
   );
 }
 
 export default App;
-
