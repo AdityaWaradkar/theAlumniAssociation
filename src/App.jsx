@@ -29,7 +29,7 @@ function App() {
           <Route path="/unemployed" element={<Unemployed />} />
           <Route path="/further-studies" element={<Heigherstudies />} />
           <Route path="/Self-employed" element={<Selfemployed />} />
-          <Route path="/pphoto" element={<Biophoto />} />
+          <Route path="/photo" element={<Biophoto />} />
           <Route path="/logged" element={<ProfileSetup />} />
         </Routes>
       </BrowserRouter>
